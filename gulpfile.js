@@ -19,11 +19,11 @@ var reload = browserSync.reload;
 var merge = require('merge-stream');
 var path = require('path');
 var fs = require('fs');
-var glob = require('glob');
+var glob = require('glob-all');
 var historyApiFallback = require('connect-history-api-fallback');
 var packageJson = require('./package.json');
 var crypto = require('crypto');
-var polybuild = require('polybuild');
+// var ghPages = require('gulp-gh-pages');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -37,45 +37,37 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
+var DIST = 'dist';
+
+var dist = function(subpath) {
+  return !subpath ? DIST : path.join(DIST, subpath);
+};
+
 var styleTask = function(stylesPath, srcs) {
   return gulp.src(srcs.map(function(src) {
       return path.join('app', stylesPath, src);
     }))
-    .pipe($.changed(stylesPath, {
-      extension: '.css'
-    }))
+    .pipe($.changed(stylesPath, {extension: '.css'}))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/' + stylesPath))
-    .pipe($.cssmin())
-    .pipe(gulp.dest('dist/' + stylesPath))
-    .pipe($.size({
-      title: stylesPath
-    }));
-};
-
-var jshintTask = function(src) {
-  return gulp.src(src)
-    .pipe($.jshint.extract()) // Extract JS from .html files
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+    .pipe($.minifyCss())
+    .pipe(gulp.dest(dist(stylesPath)))
+    .pipe($.size({title: stylesPath}));
 };
 
 var imageOptimizeTask = function(src, dest) {
   return gulp.src(src)
-    .pipe($.cache($.imagemin({
+    .pipe($.imagemin({
       progressive: true,
       interlaced: true
-    })))
+    }))
     .pipe(gulp.dest(dest))
-    .pipe($.size({
-      title: 'images'
-    }));
+    .pipe($.size({title: 'images'}));
 };
 
 var optimizeHtmlTask = function(src, dest) {
   var assets = $.useref.assets({
-    searchPath: ['.tmp', 'app', 'dist']
+    searchPath: ['.tmp', 'app', dist()]
   });
 
   return gulp.src(src)
@@ -88,7 +80,7 @@ var optimizeHtmlTask = function(src, dest) {
     })))
     // Concatenate and minify styles
     // In case you are still using useref build blocks
-    .pipe($.if('*.css', $.cssmin()))
+    .pipe($.if('*.css', $.minifyCss()))
     .pipe(assets.restore())
     .pipe($.useref())
     // Minify any HTML
@@ -104,12 +96,6 @@ var optimizeHtmlTask = function(src, dest) {
     }));
 };
 
-
-gulp.task('clearCache', function() {
-  $.cache.clearAll();
-});
-
-
 // Compile and automatically prefix stylesheets
 gulp.task('styles', function() {
   return styleTask('styles', ['**/*.css']);
@@ -120,22 +106,30 @@ gulp.task('elements', function() {
 });
 
 // Lint JavaScript
-gulp.task('jshint', function() {
-  return jshintTask([
+gulp.task('lint', function() {
+  return gulp.src([
       'app/scripts/**/*.js',
       'app/elements/**/*.js',
       'app/elements/**/*.html',
       'gulpfile.js'
     ])
-    .pipe($.jshint.extract()) // Extract JS from .html files
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+    .pipe(reload({
+      stream: true,
+      once: true
+    }))
+
+  // JSCS has not yet a extract option
+  .pipe($.if('*.html', $.htmlExtract()))
+  .pipe($.jshint())
+  .pipe($.jscs())
+  .pipe($.jscsStylish.combineWithHintResults())
+  .pipe($.jshint.reporter('jshint-stylish'))
+  .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
 
 // Optimize images
 gulp.task('images', function() {
-  return imageOptimizeTask('app/images/**/*', 'dist/images');
+  return imageOptimizeTask('app/images/**/*', dist('images'));
 });
 
 // Copy all files at the root level (app)
@@ -146,26 +140,27 @@ gulp.task('copy', function() {
     '!app/cache-config.json'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'));
+  }).pipe(gulp.dest(dist()));
+
   var bower = gulp.src([
     'bower_components/**/*'
-  ]).pipe(gulp.dest('dist/bower_components'));
+  ]).pipe(gulp.dest(dist('bower_components')));
 
   var elements = gulp.src(['app/elements/**/*.html',
       'app/elements/**/*.css',
       'app/elements/**/*.js'
     ])
-    .pipe(gulp.dest('dist/elements'));
+    .pipe(gulp.dest(dist('elements')));
 
   var swBootstrap = gulp.src(['bower_components/platinum-sw/bootstrap/*.js'])
-    .pipe(gulp.dest('dist/elements/bootstrap'));
+    .pipe(gulp.dest(dist('elements/bootstrap')));
 
   var swToolbox = gulp.src(['bower_components/sw-toolbox/*.js'])
-    .pipe(gulp.dest('dist/sw-toolbox'));
+    .pipe(gulp.dest(dist('sw-toolbox')));
 
   var vulcanized = gulp.src(['app/elements/elements.html'])
     .pipe($.rename('elements.vulcanized.html'))
-    .pipe(gulp.dest('dist/elements'));
+    .pipe(gulp.dest(dist('elements')));
 
   return merge(app, bower, elements, vulcanized, swBootstrap, swToolbox)
     .pipe($.size({
@@ -176,7 +171,7 @@ gulp.task('copy', function() {
 // Copy web fonts to dist
 gulp.task('fonts', function() {
   return gulp.src(['app/fonts/**'])
-    .pipe(gulp.dest('dist/fonts'))
+    .pipe(gulp.dest(dist('fonts')))
     .pipe($.size({
       title: 'fonts'
     }));
@@ -186,32 +181,20 @@ gulp.task('fonts', function() {
 gulp.task('html', function() {
   return optimizeHtmlTask(
     ['app/**/*.html', '!app/{elements,test}/**/*.html'],
-    'dist');
+    dist());
 });
 
-// Polybuild will take care of inlining HTML imports,
-// scripts and CSS for you.
+// Vulcanize granular configuration
 gulp.task('vulcanize', function() {
-  return gulp.src('dist/index.html')
-    .pipe(polybuild({
-      maximumCrush: true
+  var DEST_DIR = dist('elements');
+  return gulp.src(dist('elements/elements.vulcanized.html'))
+    .pipe($.vulcanize({
+      stripComments: true,
+      inlineCss: true,
+      inlineScripts: true
     }))
-    .pipe(gulp.dest('dist/'));
-});
-
-// If you require more granular configuration of Vulcanize
-// than polybuild provides, follow instructions from readme at:
-// https://github.com/PolymerElements/polymer-starter-kit/#if-you-require-more-granular-configuration-of-vulcanize-than-polybuild-provides-you-an-option-by
-
-// Rename Polybuild's index.build.html to index.html
-gulp.task('rename-index', function() {
-  return gulp.src('dist/index.build.html')
-    .pipe($.rename('index.html'))
-    .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('remove-old-build-index', function() {
-  return del('dist/index.build.html');
+    .pipe(gulp.dest(DEST_DIR))
+    .pipe($.size({title: 'vulcanize'}));
 });
 
 // Generate config data for the <sw-precache-cache> element.
@@ -222,19 +205,21 @@ gulp.task('remove-old-build-index', function() {
 // See https://github.com/PolymerElements/polymer-starter-kit#enable-service-worker-support
 // for more context.
 gulp.task('cache-config', function(callback) {
-  var dir = 'dist';
+  var dir = dist();
   var config = {
     cacheId: packageJson.name || path.basename(__dirname),
     disabled: false
   };
 
-  glob('{elements,scripts,styles}/**/*.*', {
-    cwd: dir
-  }, function(error, files) {
+  glob([
+    'index.html',
+    './',
+    'bower_components/webcomponentsjs/webcomponents-lite.min.js',
+    '{elements,scripts,styles}/**/*.*'],
+    {cwd: dir}, function(error, files) {
     if (error) {
       callback(error);
     } else {
-      files.push('index.html', './', 'bower_components/webcomponentsjs/webcomponents-lite.min.js');
       config.precache = files;
 
       var md5 = crypto.createHash('md5');
@@ -248,12 +233,12 @@ gulp.task('cache-config', function(callback) {
 });
 
 // Clean output directory
-gulp.task('clean', function(cb) {
-  del(['.tmp', 'dist'], cb);
+gulp.task('clean', function() {
+  return del(['.tmp', dist()]);
 });
 
 // Watch files for changes & reload
-gulp.task('serve', ['styles', 'elements', 'images'], function() {
+gulp.task('serve', ['lint', 'styles', 'elements', 'images'], function() {
   browserSync({
     port: 5000,
     notify: false,
@@ -282,7 +267,7 @@ gulp.task('serve', ['styles', 'elements', 'images'], function() {
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
   gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
-  gulp.watch(['app/{scripts,elements}/**/{*.js,*.html}'], ['jshint']);
+  gulp.watch(['app/{scripts,elements}/**/{*.js,*.html}'], ['lint']);
   gulp.watch(['app/images/**/*'], reload);
 });
 
@@ -304,24 +289,45 @@ gulp.task('serve:dist', ['default'], function() {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: 'dist',
+    server: dist(),
     middleware: [historyApiFallback()]
   });
 });
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function(cb) {
-  // Uncomment 'cache-config' after 'rename-index' if you are going to use service workers.
+  // Uncomment 'cache-config' if you are going to use service workers.
   runSequence(
-    ['clearCache', 'copy', 'styles'],
-    'elements', ['jshint', 'images', 'fonts', 'html'],
-    'vulcanize', 'rename-index', 'remove-old-build-index', // 'cache-config',
+    ['copy', 'styles'],
+    'elements',
+    ['lint', 'images', 'fonts', 'html'],
+    'vulcanize', // 'cache-config',
     cb);
+});
+
+// Build then deploy to GitHub pages gh-pages branch
+gulp.task('build-deploy-gh-pages', function(cb) {
+  runSequence(
+    'default',
+    'deploy-gh-pages',
+    cb);
+});
+
+// Deploy to GitHub pages gh-pages branch
+gulp.task('deploy-gh-pages', function() {
+  return gulp.src(dist('**/*'))
+    // Check if running task from Travis Cl, if so run using GH_TOKEN
+    // otherwise run using ghPages defaults.
+    .pipe($.if(process.env.TRAVIS === 'true', $.ghPages({
+      remoteUrl: 'https://$GH_TOKEN@github.com/polymerelements/polymer-starter-kit.git',
+      silent: true,
+      branch: 'gh-pages'
+    }), $.ghPages()));
 });
 
 // Load tasks for web-component-tester
 // Adds tasks for `gulp test:local` and `gulp test:remote`
-// require('web-component-tester').gulp.init(gulp);
+require('web-component-tester').gulp.init(gulp);
 
 // Load custom tasks from the `tasks` directory
 try {
