@@ -22,13 +22,13 @@
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="PSK">
-  <link rel="icon" sizes="192x192" href="/images/rrl.png">
+  <link rel="icon" sizes="192x192" href="images/rrl.png">
 
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Redwater Minor Soccer">
-  <link rel="apple-touch-icon" href="/images/rrl.png">
+  <link rel="apple-touch-icon" href="images/rrl.png">
 
   <!-- Tile icon for Win8 (144x144) -->
   <meta name="msapplication-TileImage" content="/images/rrl.png">
@@ -40,83 +40,13 @@
   <!-- will be replaced with elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
   <!-- endreplace-->
-
+ <link rel="stylesheet" href="styles/rms.css">
 </head>
 
 <body id="top" unresolved class="layout vertical">
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
-    <style>
-      body {
-        font-family: 'Roboto', sans-serif;
-          font-size: 1em;
-      }
-           
-      #drawer {
-        background: #4E5358;
-        color: #9AB574;
-        height: 100%;
-        line-height: 350%;
-      }
-      
-      a,
-      a:link,
-      a:visited,
-      a:active,
-      a:hover {
-        text-decoration: none;
-        color: #9AB574;
-        padding: 5px;
-      }
-      
-      a:hover {
-        background-color: white;
-        color: black
-      }
-      
-      section {
-        max-width: 820px;
-        padding: 15px 10px 10px 10px;
-      }
-      
-      #title {
-        color: indigo;
-        font-size: 1em;
-      }
-      
-      @media only screen and (min-width: 480px) {
-        #title {
-          font-size: 2em;
-        }
-      }
- 
-      #menubutton {
-        display: block;
-      }
-      
-      @media only screen and (min-width: 990px) {
-        #menubutton {
-          display: none;
-        }
-        body {
-          font-size: 1.5em;
-        }
-        #drawer {
-          width: 300px;
-        }
-      }
-
-      @media only screen and (min-width: 1281px) {
-        section {
-          max-width:1240px;
-        }
-        #title {
-          font-size: 3em;
-        }
-
-      }
-
-    </style>
+    
     <!-- responsive width 840 px is 
       min desktop width, 150px for the menu, so 840 + 150 -->
     <app-drawer-layout id="app-drawer-layout" drawer-width="150px" responsive-width="990px">

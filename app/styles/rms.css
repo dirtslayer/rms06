@@ -1,0 +1,113 @@
+
+      body {
+        font-family: 'Roboto', sans-serif;
+          font-size: 1em;
+      }
+           
+      #drawer {
+        background: #4E5358;
+        color: #9AB574;
+        height: 100%;
+        line-height: 350%;
+      }
+      
+      a,
+      a:link,
+      a:visited,
+      a:active,
+      a:hover {
+        text-decoration: none;
+        color: #9AB574;
+        padding: 5px;
+      }
+      
+      a:hover {
+        background-color: white;
+        color: black
+      }
+      
+      section {
+        max-width: 820px;
+        padding: 15px 10px 10px 10px;
+      }
+      
+      #title {
+        color: indigo;
+        font-size: 1em;
+      }
+      
+ 
+      #menubutton {
+        display: block;
+      }
+      
+
+
+
+  #rocketslogo {
+    width: 150px;
+    height: 180px;
+    padding: 5px 20px 5px 10px;
+  }
+  
+  
+  partner-card {
+    padding: 15px 15px 0px 0px;
+  }
+  
+  #pclast {
+    padding-right: 0px;
+  }
+  
+  #derrick {
+    width: 150px;
+    height: 150px;
+  }
+  
+  @media only screen and (min-width: 480px) {
+    #derrick {
+      width: 300px;
+      height: 300px;
+    }
+        #title {
+          font-size: 2em;
+        }
+
+  }
+  
+      @media only screen and (min-width: 990px) {
+        #menubutton {
+          display: none;
+        }
+        body {
+          font-size: 1.5em;
+        }
+        #drawer {
+          width: 300px;
+        }
+      }
+
+
+
+  @media only screen and (min-width: 1281px) {
+    #derrick {
+      width: 500px;
+      height: 500px;
+    }
+    #rocketslogo {
+      width: 300px;
+      height: 360px;
+      padding: 5px 20px 5px 10px;
+    }
+    partner-card {
+      padding: 15px 50px 0px 0px;
+    }
+        section {
+          max-width:1240px;
+        }
+        #title {
+          font-size: 3em;
+        }
+
+  }
+
