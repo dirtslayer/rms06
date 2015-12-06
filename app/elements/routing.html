@@ -1,14 +1,7 @@
-
-<script src="../bower_components/page/page.js"></script>
+<script src="../bower_components/page/page.js">
+</script>
 <script>
-console.log('routing.html');
   window.addEventListener('WebComponentsReady', function() {
-
-    // We use Page.js for routing. This is a Micro
-    // client-side router inspired by the Express router
-    // More info: https://visionmedia.github.io/page.js/
-
-    // Middleware
     function scrollToTop(ctx, next) {
       app.scrollPageToTop();
       next();
@@ -33,7 +26,7 @@ console.log('routing.html');
       app.route = 'teams';
     });
 
-	// add #! before urls
+    // add #! before urls
     page({
       hashbang: true
     });
