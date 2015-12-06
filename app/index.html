@@ -49,7 +49,7 @@
     
     <!-- responsive width 840 px is 
       min desktop width, 150px for the menu, so 840 + 150 -->
-    <app-drawer-layout id="app-drawer-layout" drawer-width="150px" responsive-width="990px">
+    <app-drawer-layout id="app-drawer-layout" drawer-toggle drawer-width="150px" responsive-width="990px">
 
       <div drawer id="drawer" class="vertical layout">
         <div id="vertical-pad" style="height:50px"></div>
@@ -72,7 +72,7 @@
         <app-header-layout>
           <app-header "horizontal center layout">
             <app-toolbar style="width:100%" class="horizontal start-justified layout">
-              <paper-icon-button id="menubutton" icon="menu" on-click="onDataRouteClick"></paper-icon-button>
+              <paper-icon-button id="menubutton" icon="menu" ></paper-icon-button>
               <div style="width:100%" class="horizontal layout center-center">
                 <div id="title">Redwater Minor Soccer</div>
               </div>
