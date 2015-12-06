@@ -1,0 +1,73 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="partner-card">
+  <template>
+    <style>
+      .textarea {
+        width: 100px;
+        height: 45px;
+        text-align: center;
+      }
+      
+      iron-image {
+        width: 100px;
+        height: 150px;
+      }
+      
+      @media only screen and (min-width: 480px) {
+        iron-image {
+          width: 150px;
+          height: 200px;
+        }
+        .textarea {
+          width: 150px;
+          height: 50px;
+          text-align: center;
+        }
+      }
+      
+      @media only screen and (min-width: 990px) {
+        .textarea {
+          width: 150px;
+          height: 80px;
+          text-align: center;
+        }
+      }
+      
+      @media only screen and (min-width: 1281px) {
+        iron-image {
+          width: 200px;
+          height: 270px;
+        }
+        .textarea {
+          width: 200px;
+          height: 80px;
+          text-align: center;
+        }
+      }
+    </style>
+    <paper-material elevation="2" style="padding: 5px 15px 5px 15px;background:white">
+      <div class="vertical layout center">
+        <iron-image sizing="contain" src={{src}}></iron-image>
+        <div class="textarea layout center-center ">
+          <a href="{{href}}">{{name}}</p>
+        </div>
+      </div>
+    </paper-material>
+  </template>
+  <script>
+    Polymer({
+      is: 'partner-card',
+      properties: {
+        src: {
+          type: String
+        },
+        href: {
+          type: String
+        },
+        name: {
+          type: String
+        }
+      }
+    });
+  </script>
+</dom-module>

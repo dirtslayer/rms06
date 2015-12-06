@@ -1,0 +1,111 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<style>
+  #rocketslogo {
+    width: 150px;
+    height: 180px;
+    padding: 5px 20px 5px 10px;
+  }
+  
+  section {}
+  
+  partner-card {
+    padding: 15px 15px 0px 0px;
+  }
+  
+  #pclast {
+    padding-right: 0px;
+  }
+  
+  #derrick {
+    width: 150px;
+    height: 150px;
+  }
+  
+  @media only screen and (min-width: 480px) {
+    #derrick {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  @media only screen and (min-width: 1281px) {
+    #derrick {
+      width: 500px;
+      height: 500px;
+    }
+    #rocketslogo {
+      width: 300px;
+      height: 360px;
+      padding: 5px 20px 5px 10px;
+    }
+    partner-card {
+      padding: 15px 50px 0px 0px;
+    }
+  }
+</style>
+<dom-module id="rms-home">
+  <template>
+
+    <section name="welcome card">
+      <div id="welcome-card">
+        <paper-material elevation="2">
+          <div class="horizontal layout">
+            <div id="logo-container" class="container layout horizontal center-center ">
+
+              <iron-image id="rocketslogo" sizing="contain" src="/images/rrl.png">
+              </iron-image>
+
+            </div>
+            <div class="vertical layout">
+              <h3>Go Rockets!</h3>
+              <p>Welcome to the website. You will find information on all our teams, important announcements, campaigns, and our organzation.</p>
+            </div>
+          </div>
+        </paper-material>
+      </div>
+    </section>
+
+    <section name="partners cards" class="horizontal layout wrap center-center">
+      <partner-card id="pcfirst" name="Alberta Soccer Association" src="/images/ASALOGO.png" href="http://www.albertasoccer.com/"></partner-card>
+
+      <partner-card name="Sherwood Park District Soccer Association" src="/images/spdsa.png" href="http://www.spdsa.net/"></partner-card>
+
+      <partner-card name="Tri County Soccer Association" src="/images/TRICOUNTY.png" href="http://www.tricountysoccer.net/"></partner-card>
+
+      <partner-card id="pclast" name="Gibbons Minor Soccer Association" src="/images/gibbons-soccer.png" href="http://www.gibbonssoccer.com/"></partner-card>
+    </section>
+
+    <section name="redwater card">
+      <div class="horizontal flex center layout">
+        <paper-material elevation="2">
+          <div class="horizontal layout center-center">
+            <div>
+              <a target="_blank" data-outbound="image-map" href="https://www.google.ca/maps/place/Redwater,+AB+T0A/@53.9526665,-113.1233891,14z/data=!3m1!4b1!4m2!3m1!1s0x53a0528cd47781e9:0xf420d33dae24f632">
+                <iron-image id="derrick" sizing="contain" src="/images/derrick02.jpg">
+                </iron-image>
+              </a>
+            </div>
+            <div style="padding: 20px 0px 20px 20px; " class="vertical layout">
+              <h3>Redwater, Alberta</h3>
+              <p>Less than an hour north-east of Edmonton, Redwater is a growing community with many recreational oportunities.</p>
+            </div>
+          </div>
+      </div>
+      </paper-material>
+    </section>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'rms-home',
+      properties: {
+        page: {
+          type: String
+        }
+      },
+
+      attached: function() {}
+    });
+  </script>
+
+</dom-module>

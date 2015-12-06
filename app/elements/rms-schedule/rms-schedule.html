@@ -1,0 +1,85 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="rms-schedule">
+
+
+<template>
+<style>
+      :host {
+        display: block;
+      }
+    </style>
+
+  <paper-button id="{{id}}paperbutton" tabindex="0" 
+   toggles>
+
+      <iron-icon icon="view-stream" style="padding: 5px" ></iron-icon>
+        {{buttontext}}
+  </paper-button>
+
+
+ <iron-collapse id="{{id}}ic"  class="vertical layout">
+
+  
+<iron-ajax url="{{dataurl}}" last-response="{{data}}" auto></iron-ajax>
+
+<div class="vertical layout" >
+
+  <iron-list items="[[data]]" as="item"  >
+    <template>
+       <div class="item" style="padding : 0px 0px 10px 0px">
+          <div  >
+            <div class="left" style="min-width :200px">
+              <div ><h3>[[item.date]]</h3></div>
+              <div >[[item.location]]</div>
+              <div >[[item.home-team]] v. [[item.away-team]]</div>
+            </div> 
+           <div style="min-width :200px">
+            <div style="padding : 0px 0px 10px 0px" >[[item.result]] </div>
+
+            <div >summary: [[item.summary]] </div>
+           </div> 
+          </div>  
+         </div>   
+         
+      </template>
+    </iron-list>
+
+
+</iron-collapse>
+
+
+</div>
+
+
+</template>
+
+  <script>
+      Polymer({
+        is: 'rms-schedule',
+        properties: {
+          dataurl: {
+            type: String,
+            notify: true            
+          },
+          buttontext: {
+            type: String,
+            notify: true
+          }
+         },
+       
+         attached: function() {
+            var pbic = document.getElementById(this.id + 'paperbutton');
+            
+            pbic.onclick = function() {
+                var ic = document.getElementById(this.id.replace('paperbutton','') + 'ic');
+                ic.toggle();
+            };
+         }
+      });
+   
+  </script>
+
+</dom-module>
+
