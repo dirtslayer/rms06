@@ -10,33 +10,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="rms-teams">
+<dom-module id="href-paperbutton">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <div>Hello from <span>{{foo}}</span></div>
-    <href-paperbutton></href-paperbutton>
-    <href-paperbutton text="google" url="http://www.google.ca" ></href-paperbutton>
-
+    <paper-button href="{{url}}">{{text}}</paper-button>
   </template>
   <script>
-  (function() {
-    'use strict';
+    (function() {
+      'use strict';
 
-    Polymer({
-      is: 'rms-teams',
+      Polymer({
+        is: 'href-paperbutton',
 
-      properties: {
-        foo: {
-          type: String,
-          value: 'rms-teams',
-          notify: true
+        properties: {
+          url: {
+            type: String,
+            value: 'http://designr8.com'
+          },
+          text: {
+            type: String,
+            value: 'designr8'
+          }
+        },
+
+        attached: function() {
+          this.onclick = function() {
+            window.location.href = this.url;
+          };
         }
-      }
-    });
-  })();
+      });
+    })();
   </script>
 </dom-module>
