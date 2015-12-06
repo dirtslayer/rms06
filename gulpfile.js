@@ -129,7 +129,7 @@ gulp.task('copy', function () {
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
-
+console.log(app);
   var bower = gulp.src([
     'bower_components/**/*'
   ]).pipe(gulp.dest('dist/bower_components'));
