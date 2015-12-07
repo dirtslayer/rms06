@@ -49,10 +49,11 @@
     
     <!-- responsive width 840 px is 
       min desktop width, 150px for the menu, so 840 + 150 -->
-    <app-drawer-layout id="app-drawer-layout" drawer-toggle drawer-width="150px" responsive-width="990px">
+    <app-drawer-layout id="app-drawer-layout" drawer-width="150px" responsive-width="3000px">
 
       <div drawer id="drawer" class="vertical layout">
-        <div id="vertical-pad" style="height:50px"></div>
+        <div id="vertical-pad" style="height:100px" class="horizontal start-justified layout">
+        </div>
         <a data-route="home" href="/" on-click="onDataRouteClick">
           <iron-icon icon="home"></iron-icon>
           <span>Home</span>

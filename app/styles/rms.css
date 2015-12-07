@@ -3,6 +3,10 @@ body {
   font-size: 1em;
 }
 
+app-header {
+  z-index: 100;
+}
+
 #drawer {
   background: #4E5358;
   color: #9AB574;
@@ -49,6 +53,10 @@ partner-card {
   padding: 15px 15px 0px 0px;
 }
 
+paper-material {
+  padding: 5px 10px 5px 5px;
+}
+
 #pclast {
   padding-right: 0px;
 }
@@ -69,9 +77,6 @@ partner-card {
 }
 
 @media only screen and (min-width: 990px) {
-  #menubutton {
-    display: none;
-  }
   body {
     font-size: 1.5em;
   }
