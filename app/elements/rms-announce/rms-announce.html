@@ -13,67 +13,67 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="rms-announce">
   <template>
     <style>
-paper-material {
-  padding: 10px;
-}
+      paper-material {
+        padding: 10px;
+      }
+      #rms-announce-div {
+        padding: 10px;
+      }
     </style>
-      <paper-material elevation="2" >     
-              <h3>Announcements</h3>
-              <i>November 19, 2015</i>
-              <p>A meeting was held Wednesday November 18th at Paradise Inn. Many issues where raised by 
-              parents and parent-coach liaisons. Redwater Minor Soccer would like to thank everyone who
-              contributed either by email or in person and Paradise Inn for lending us the space. The 
-              meeting lasted 2 hours and it is clear that we are going through a period of change where
-              more discussions will be forthcoming. Some of the topics discussed where:
-              </p>
-  
-  
-              
-              <ul style="list-style-type: square ; list-style-position: outside " class="vertical layout">
-              <li>
-              Fund Raising
-              </li>
-              <li>
-              New positions
-              </li>
-              <li>
-              Parent liaisons
-              </li>
-              <li>
-              Policy updates
-              </li>
-              <li>
-              Agenda for next meeting
-              </li>
-              <li>
-              Team Photos
-              </li>
-              <li>
-              Practice venue
-              </li>
-              <li>
-              Managing change
-              </li>
-  
-              </ul>
+    <div id="rms-announce-div" class="vertical center-center layout" >
+      <paper-material elevation="2">
+        <h3>Announcements</h3>
+        <i>November 19, 2015</i>
+        <p>A meeting was held Wednesday November 18th at Paradise Inn. Many issues where raised by parents and parent-coach liaisons. Redwater Minor Soccer would like to thank everyone who contributed either by email or in person and Paradise Inn for lending us the space. The meeting lasted 2 hours and it is clear that we are going through a period of change where more discussions will be forthcoming. Some of the topics discussed where:
+        </p>
+
+
+
+        <ul style="list-style-type: square ; list-style-position: outside " class="vertical layout">
+          <li>
+            Fund Raising
+          </li>
+          <li>
+            New positions
+          </li>
+          <li>
+            Parent liaisons
+          </li>
+          <li>
+            Policy updates
+          </li>
+          <li>
+            Agenda for next meeting
+          </li>
+          <li>
+            Team Photos
+          </li>
+          <li>
+            Practice venue
+          </li>
+          <li>
+            Managing change
+          </li>
+
+        </ul>
       </paper-material>
-  
+    </div>
   </template>
   <script>
-  (function() {
-    'use strict';
+    (function() {
+      'use strict';
 
-    Polymer({
-      is: 'rms-announce',
+      Polymer({
+        is: 'rms-announce',
 
-      properties: {
-        foo: {
-          type: String,
-          value: 'rms-announce',
-          notify: true
+        properties: {
+          foo: {
+            type: String,
+            value: 'rms-announce',
+            notify: true
+          }
         }
-      }
-    });
-  })();
+      });
+    })();
   </script>
 </dom-module>

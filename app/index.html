@@ -79,9 +79,12 @@
               </div>
             </app-toolbar>
           </app-header>
-          <div class="vertical center-center layout">
-            <div>
-              <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
+          <div style="width:100%" >
+              <iron-pages style="width:100%"  
+                attr-for-selected="data-route" 
+                selected="{{route}}">
+
                 <section data-route="home">
                   <rms-home></rms-home>
                 </section>
@@ -91,8 +94,13 @@
                 <section data-route="teams">
                   <rms-teams></rms-teams>
                 </section>
+                <section data-route="u10">
+                  <u10fall2015-indoor></u10fall2015-indoor>
+                </section>
+                <section data-route="u12" style="width:100%" >
+                  <u12fall2015-indoor></u12fall2015-indoor>
+                </section>
               </iron-pages>
-            </div>
           </div>
           <!-- app header layout content end -->
         </app-header-layout>

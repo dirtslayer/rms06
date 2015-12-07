@@ -17,7 +17,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
-    <paper-button href="{{url}}">{{text}}</paper-button>
+    
+    <a data-route="{{url}}" href="{{url}}" on-click="onDataRouteClick">
+      <paper-button>{{text}}</paper-button>
+    </a>
   </template>
   <script>
     (function() {
@@ -38,9 +41,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
 
         attached: function() {
-          this.onclick = function() {
-            window.location.href = this.url;
-          };
+    //      this.onclick = function() {
+     //      window.location.href = this.url;
+      //   };
         }
       });
     })();

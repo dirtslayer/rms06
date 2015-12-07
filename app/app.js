@@ -8,11 +8,8 @@
   window.addEventListener('WebComponentsReady', function() {
 
     var scrim = document.getElementById('scrim');
-    console.log(scrim);
     scrim.onclick = function() {
-      console.log('scrim click');
       var adl = document.getElementById('app-drawer-layout');
-      console.log(adl);
       adl.opened = false;
     };
 
