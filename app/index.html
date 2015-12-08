@@ -43,7 +43,7 @@
  <link rel="stylesheet" href="styles/rms.css">
 </head>
 
-<body id="top" unresolved class="layout vertical">
+<body id="top" unresolved class="layout vertical center-center">
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
     
@@ -55,16 +55,24 @@
       <div drawer id="drawer" class="vertical layout">
         <div id="vertical-pad" style="height:100px" class="horizontal start-justified layout">
         </div>
+
         <a data-route="home" href="/" on-click="onDataRouteClick">
-          <iron-icon icon="home"></iron-icon>
-          <span>Home</span>
+        <div class="horizontal layout">
+          <div class="vertical layout center-center">
+          <iron-icon icon="home" ></iron-icon>
+          </div>
+          <div class="vertical layout center-center">
+          <span style="height:100%">Home</span>
+          </div>
+        </div>
         </a>
+
         <a data-route="announce" href="/announce" on-click="onDataRouteClick">
           <iron-icon icon="info"></iron-icon>
           <span>Announce</span>
         </a>
         <a data-route="teams" href="/teams" on-click="onDataRouteClick">
-          <iron-icon icon="images/Soccerball.svg"></iron-icon>
+          <iron-icon icon="images/smallball.svg"></iron-icon>
           <span>Teams</span>
         </a>
       </div>
@@ -80,10 +88,11 @@
             </app-toolbar>
           </app-header>
 
-          <div style="width:100%" >
+          <div  style="width:100%" >
               <iron-pages style="width:100%"  
                 attr-for-selected="data-route" 
-                selected="{{route}}">
+                selected="{{route}}"
+               class="vertical layout center-center" >
 
                 <section data-route="home">
                   <rms-home></rms-home>

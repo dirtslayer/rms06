@@ -1,11 +1,13 @@
 * {
   box-sizing: border-box;
+  overflow: visible !important;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
-
 #menubutton {
   display: block;
   z-index: 101;
@@ -16,13 +18,20 @@ app-header {
   z-index: 100;
 }
 
+
+app-drawer-layout {
+  width:100%  ;
+}
+
 #drawer {
   background: #4E5358;
   color: #9AB574;
   height: 100%;
   line-height: 350%;
 }
-
+#drawer iron-icon {
+ width:50px;
+}
 a,
 a:link,
 a:visited,
@@ -30,7 +39,7 @@ a:active,
 a:hover {
   text-decoration: none;
   color: #9AB574;
-  padding: 5px;
+  padding : 0px;
 }
 
 a:hover {
@@ -143,6 +152,21 @@ p.rms-home , h3.rms-home {
   #drawer {
     font-size: 1.0em;
   }
+
+
+#rocketslogo {
+  height:240px;
+  width:200px;
+}
+
+#derrick {
+  height:300px;
+  width:300px;
+}
+body {
+font-size:1.25em;
+}
+
 }
 
 @media only screen and (min-width: 1281px) {
