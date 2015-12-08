@@ -1,6 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 1em;
+}
+
+#menubutton {
+  display: block;
+  z-index: 101;
+  position: absolute;
 }
 
 app-header {
@@ -29,78 +38,137 @@ a:hover {
   color: black
 }
 
-
 #title {
   color: indigo;
   font-size: 1em;
 }
 
-#menubutton {
-  display: block;
-}
 
 #rocketslogo {
-  width: 150px;
-  height: 180px;
-  padding: 5px 20px 5px 10px;
-}
-
-partner-card {
-  padding: 15px 15px 0px 0px;
-}
-
-paper-material {
-  padding: 5px 10px 5px 5px;
-  width: 80%;
-}
-
-#pclast {
-  padding-right: 0px;
+  height:130px;
+  width:112px;
 }
 
 #derrick {
-  width: 150px;
-  height: 150px;
+  height:112px;
+  width:112px;
 }
 
-@media only screen and (min-width: 480px) {
-  #derrick {
-    width: 200px;
-    height: 200px;
+a.partner-card {
+  text-align:center;
+}
+iron-image.partner-card {
+  height:130px;
+  width:130px;
+}
+p.rms-home , h3.rms-home {
+ margin: 0px ;
+}
+
+.rms-main, .rms-main-half {
+  width: 336px;
+  margin: 0px 0px 12px 0px;
+}
+
+.rms-card {
+  width: 162px;
+  height: 204px;
+  margin: 0px 0px 12px 0px;
+}
+
+.rms-third {
+  width: 112px;
+  margin: 12px;
+}
+
+.rms-two-thirds {
+  width: 224px;
+  margin: 12px 12px 12px 0px;
+}
+
+@media only screen and (min-width: 481px) {
+  .rms-main, .rms-main-half {
+    width: 456px;
+  }
+  .rms-card {
+    width: 222px;
+  }
+  .rms-third {
+    width: 152px;
+  }
+  .rms-two-thirds {
+    width: 304px;
+    margin: 10px;
   }
   #title {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 
-@media only screen and (min-width: 990px) {
-  body {
-    font-size: 1.5em;
+@media only screen and (min-width: 601px) {
+  .rms-main, .rms-main-half {
+    width: 576px;
+  }
+  .rms-card {
+    width: 282px;
+  }
+  .rms-third {
+    width: 192px;
+  }
+  .rms-two-thirds {
+    width: 384px;
   }
   #drawer {
-    width: 300px;
+    font-size: 1.0em;
   }
+}
 
-  #derrick {
-    width: 300px;
-    height: 300px;
+@media only screen and (min-width: 961px) {
+  .rms-main {
+    width: 912px;
   }
-
+ .rms-main-half {
+    width: 450px;
+  }
+  
+  .rms-card {
+    width: 219px;
+  }
+  .rms-third {
+    width: 304px;
+  }
+  .rms-two-thirds {
+    width: 608px;
+  }
+  #drawer {
+    font-size: 1.0em;
+  }
 }
 
 @media only screen and (min-width: 1281px) {
-  #derrick {
-    width: 500px;
-    height: 500px;
+  .rms-main {
+    width: 1184px;
   }
-  #rocketslogo {
-    width: 300px;
-    height: 360px;
-    padding: 5px 20px 5px 10px;
+  /*
+   *
+   * half minux 6
+   */
+  .rms-main-half {
+    width: 586px;
   }
-  partner-card {
-    padding: 15px 50px 0px 0px;
+
+
+  .rms-card {
+    width: 287px;
   }
+  .rms-third {
+    width: 400px;
+  }
+  .rms-two-thirds {
+    width: 784px;
+  }
+  #rocketslogo {}
+  partner-card {}
   #title {
     font-size: 3em;
   }

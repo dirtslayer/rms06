@@ -47,9 +47,10 @@
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
     
+    <paper-icon-button id="menubutton" icon="menu" on-click=onDataRouteClick ></paper-icon-button>
     <!-- responsive width 840 px is 
       min desktop width, 150px for the menu, so 840 + 150 -->
-    <app-drawer-layout id="app-drawer-layout" drawer-width="150px" responsive-width="3000px">
+    <app-drawer-layout id="app-drawer-layout" drawer-width="168px" responsive-width="3000px">
 
       <div drawer id="drawer" class="vertical layout">
         <div id="vertical-pad" style="height:100px" class="horizontal start-justified layout">
@@ -63,7 +64,7 @@
           <span>Announce</span>
         </a>
         <a data-route="teams" href="/teams" on-click="onDataRouteClick">
-          <iron-icon icon="mail"></iron-icon>
+          <iron-icon icon="images/Soccerball.svg"></iron-icon>
           <span>Teams</span>
         </a>
       </div>
@@ -73,7 +74,6 @@
         <app-header-layout>
           <app-header "horizontal center layout">
             <app-toolbar style="width:100%" class="horizontal start-justified layout">
-              <paper-icon-button id="menubutton" icon="menu" on-click=onDataRouteClick ></paper-icon-button>
               <div style="width:100%" class="horizontal layout center-center">
                 <div id="title">Redwater Minor Soccer</div>
               </div>

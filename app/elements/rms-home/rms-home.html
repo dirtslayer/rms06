@@ -1,45 +1,54 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <dom-module id="rms-home">
   <template>
-    <div class="vertical layout center-center" style="padding:20px 10px 50px 10px" >
+    <div class="rms-main vertical layout center-center">
 
-      <div id="welcome-card" class="vertical center-center layout" >
-        <paper-material elevation="2">
-          <div class="horizontal layout">
-            <div id="logo-container" class="container layout horizontal center-center ">
-
-              <iron-image id="rocketslogo" sizing="contain" src="../../images/rrl.png">
+      <div id="welcome-card" class="rms-main">
+        <paper-material class="rms-main" elevation="2">
+          <div class="horizontal layout center-center rms-main">
+            <div class="layout horizontal center-center rms-third ">
+              <iron-image id="rocketslogo" sizing="contain" src="../../images/rrl.png" class="rms-third">
               </iron-image>
-
             </div>
-            <div class="vertical layout">
-              <h3>Go Rockets!</h3>
-              <p>Welcome to the website. You will find information on all our teams, important announcements, campaigns, and our organzation.</p>
+            <div class="rms-two-thirds vertical layout">
+              <div>
+                <h3>Go Rockets!</h3>
+                <p>Welcome to the website. You will find information on all our teams, important announcements, campaigns, and our organzation.</p>
+              </div>
             </div>
           </div>
         </paper-material>
       </div>
 
-      <div name="partners cards" class="horizontal layout wrap center-center">
-        <partner-card id="pcfirst" name="Alberta Soccer Association" src="../../images/ASALOGO.png" href="http://www.albertasoccer.com/"></partner-card>
 
-        <partner-card name="Sherwood Park District Soccer Association" src="../../images/spdsa.png" href="http://www.spdsa.net/"></partner-card>
+      <div class="rms-main horizontal layout wrap justified">
+        <div name="partner-cards" class="rms-main-half horizontal justified layout ">
+          <partner-card class="rms-card" name="Alberta Soccer Association" src="../../images/ASALOGO.png" href="http://www.albertasoccer.com/"></partner-card>
 
-        <partner-card name="Tri County Soccer Association" src="../../images/TRICOUNTY.png" href="http://www.tricountysoccer.net/"></partner-card>
+          <partner-card class="rms-card" name="Sherwood Park District Soccer Association" src="../../images/spdsa.png" href="http://www.spdsa.net/"></partner-card>
 
-        <partner-card id="pclast" name="Gibbons Minor Soccer Association" src="../../images/gibbons.png" href="http://www.gibbonssoccer.com/"></partner-card>
+        </div>
+        <div name="partner-cards" class="rms-main-half horizontal justified layout ">
+          <partner-card class="rms-card" name="Tri County Soccer Association" src="../../images/TRICOUNTY.png" href="http://www.tricountysoccer.net/"></partner-card>
+
+          <partner-card class="rms-card" name="Gibbons Minor Soccer Association" src="../../images/gibbons.png" href="http://www.gibbonssoccer.com/"></partner-card>
+        </div>
       </div>
 
-      <div class="horizontal flex center-center layout">
-        <paper-material elevation="2">
-          <div class="horizontal layout center-center">
-            <div>
-              <a target="_blank" data-outbound="image-map" href="https://www.google.ca/maps/place/Redwater,+AB+T0A/@53.9526665,-113.1233891,14z/data=!3m1!4b1!4m2!3m1!1s0x53a0528cd47781e9:0xf420d33dae24f632">
-                <iron-image id="derrick" sizing="contain" src="../../images/derrick02.jpg">
-                </iron-image>
-              </a>
+
+
+      <div id="redwater-card" class="rms-main">
+        <paper-material class="rms-main" elevation="2">
+          <div class="horizontal layout center-center rms-main">
+            <!--
+            <a target="_blank" data-outbound="image-map" href="https://www.google.ca/maps/place/Redwater,+AB+T0A/@53.9526665,-113.1233891,14z/data=!3m1!4b1!4m2!3m1!1s0x53a0528cd47781e9:0xf420d33dae24f632">
+            -->
+            <div class="rms-third horizontal layout center-center">
+              <iron-image id="derrick" sizing="contain" src="../../images/derrick02.jpg" class="rms-third">
+              </iron-image>
             </div>
-            <div style="padding: 20px 0px 20px 20px; " class="vertical layout">
+            <!-- </a> -->
+            <div class="rms-two-thirds vertical layout">
               <h3>Redwater, Alberta</h3>
               <p>Less than an hour north-east of Edmonton, Redwater is a growing community with many recreational oportunities.</p>
             </div>
