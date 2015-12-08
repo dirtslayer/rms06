@@ -12,6 +12,7 @@ body {
   display: block;
   z-index: 101;
   position: absolute;
+  left: 10px;
 }
 
 app-header {
