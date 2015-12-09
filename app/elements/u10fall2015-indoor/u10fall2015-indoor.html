@@ -17,24 +17,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
-  
-  
+    <google-youtube id="googleYouTube" playsupported="{{playSupported}}" video-id="mN7IAaRdi_k" state="{{state}}" currenttime="{{currentTime}}" currenttimeformatted="{{currentTimeFormatted}}" duration="{{duration}}" durationformatted="{{durationFormatted}}" fractionloaded="{{fractionLoaded}}" on-google-youtube-state-change="handleStateChange" on-google-youtube-error="handleYouTubeError">
+    </google-youtube>
+
   </template>
   <script>
-  (function() {
-    'use strict';
+    (function() {
+      'use strict';
 
-    Polymer({
-      is: 'u10fall2015-indoor',
+      Polymer({
+        is: 'u10fall2015-indoor',
 
-      properties: {
-        foo: {
-          type: String,
-          value: 'u10fall2015-indoor',
-          notify: true
+        properties: {
+          foo: {
+            type: String,
+            value: 'u10fall2015-indoor',
+            notify: true
+          }
         }
-      }
-    });
-  })();
+      });
+    })();
   </script>
 </dom-module>

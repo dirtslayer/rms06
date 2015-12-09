@@ -13,8 +13,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="u12fall2015-indoor">
   <template>
     <script>
-
-
     </script>
 
 
@@ -22,27 +20,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
       }
-      
-      google-youtube {
+      /*      google-youtube {
         height: 100%;
         width: 100%;
       }
+*/
     </style>
-    <div class="vertical layout">
+
       <google-youtube id="player" video-id={{utoobid}} fluid="true" autoplay="0">
       </google-youtube>
       <h3> pick a game to view </h3>
       <div class="horizontal layout">
-        <paper-button id="b1" butoobid="meiVuvUOL6I" on-click="_handleClick" > November 21, 2015
+        <paper-button id="b1" butoobid="meiVuvUOL6I" on-click="_handleClick"> November 21, 2015
           <br> Hilights </paper-button>
-        <paper-button id="b2" butoobid="tHO0-WPHzUY" on-click="_handleClick" > December 5, 2015
+        <paper-button id="b2" butoobid="tHO0-WPHzUY" on-click="_handleClick"> December 5, 2015
           <br> Hilights </paper-button>
       </div>
   </template>
   <script>
-
-  
-(function() {
+    (function() {
       'use strict';
 
       Polymer({
@@ -52,13 +48,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           utoobid: {
             type: String,
             value: 'meiVuvUOL6I?vq=hd1080',
-            observer: '_utoobidChanged' 
+            observer: '_utoobidChanged'
           }
         },
         _utoobidChanged: function(utoobid) {
           this.$.player.videoId = utoobid;
         },
-        _handleClick: function(b,detail) {
+        _handleClick: function(b, detail) {
           /*  these are steps i used to find what i need in the dom
              
              console.log('_handleClick b: ' + b );
@@ -72,13 +68,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           */
 
           console.log('b.srcElement.getAttribute butoobid : ' + b.srcElement.getAttribute('butoobid'));
-          this.utoobid =  b.srcElement.getAttribute('butoobid');
+          this.utoobid = b.srcElement.getAttribute('butoobid');
           this.$.player.play();
-          
+
         },
 
         attached: function() {
-          console.log ('u12fall20150-indoor attached');
+          console.log('u12fall20150-indoor attached');
           // utplayer = document.getElementbyID("utplayer");
 
           //this.onclick =  bc.bind(this);
