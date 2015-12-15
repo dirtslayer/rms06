@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Agrium Soccer Field",
+        "info": "Antal and Janaye playing chess",
+        "src": "carousel/agrium.jpg",
+        "link": "carousel/agrium.jpg"
+    },
+    {
+        "title": "Redwater Minor Soccer Christmas Tree",
+        "info": "First Place Tree!",
+        "src": "carousel/antaltree.jpg",
+        "link": "carousel/antaltree.jpg"
+    },
+    {
+        "title": "Crafts at Kris Kringle",
+        "info": "Merry Christmas!",
+        "src": "carousel/crafty01.jpg",
+        "link": "carousel/crafty01.jpg"
+    },
+    {
+        "title": "Crafty!",
+        "info": "Merry Christmas!",
+        "src": "carousel/happycrafty.jpg",
+        "link": "carousel/happycrafty.jpg"
+    },
+    {
+        "title": "Happy Volunteers!",
+        "info": "Merry Christmas!",
+        "src": "carousel/happyvolunteers.jpg",
+        "link": "carousel/happyvolunteers.jpg"
+    },
+    {
+        "title": "First Place!",
+        "info": "Redwater Minor Soccer Christmas Tree",
+        "src": "carousel/rmstree.jpg",
+        "link": "carousel/rmstree.jpg"
+    }
+]

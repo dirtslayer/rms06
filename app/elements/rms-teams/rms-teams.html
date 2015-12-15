@@ -2,8 +2,8 @@
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Thlete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The coplete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
@@ -12,15 +12,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="rms-teams">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <paper-carousel src="data/carousel.json"></paper-carousel>
-    <href-paperbutton text="U10 Fall 2015 Indoor" url="/u10" ></href-paperbutton>
-    <href-paperbutton text="U12 Fall 2015 Indoor" url="/u12" ></href-paperbutton>
+  <style is="custom-style">
+    #pc {
+      --default-primary-color: indigo;
+      --iron-image-info-color: white;
+    }
+  </style>
+  <paper-carousel id="pc" src="../../carousel/carousel.json" ></paper-carousel>
 
+    <div layout horizontal >
+      <href-paperbutton text="U10 Fall 2015 Indoor" url="/u10" ></href-paperbutton>
+      <href-paperbutton text="U12 Fall 2015 Indoor" url="/u12" ></href-paperbutton>
+    </div>
   </template>
   <script>
   (function() {
@@ -35,6 +38,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           value: 'rms-teams',
           notify: true
         }
+
+      },
+      attached : function () {
+        this.$.pc.auto = true;
       }
     });
   })();

@@ -65,6 +65,10 @@ var imageOptimizeTask = function(src, dest) {
     .pipe($.size({title: 'images'}));
 };
 
+gulp.task('clearCache', function() {
+  $.cache.clearAll();
+});
+
 var optimizeHtmlTask = function(src, dest) {
   var assets = $.useref.assets({
     searchPath: ['.tmp', 'app', dist()]
@@ -72,7 +76,7 @@ var optimizeHtmlTask = function(src, dest) {
 
   return gulp.src(src)
     // Replace path for vulcanized assets
-    .pipe($.if('*.html', $.replace('elements/elements.html', 
+    .pipe($.if('*.html', $.replace('elements/elements.html',
             'elements/elements.vulcanized.html')))
     .pipe(assets)
     // Concatenate and minify JavaScript
@@ -143,6 +147,10 @@ gulp.task('copy', function() {
     dot: true
   }).pipe(gulp.dest(dist()));
 
+
+
+  var carousel = gulp.src(['app/carousel/*']).pipe(gulp.dest(dist('carousel')));
+
   var bower = gulp.src([
     'bower_components/**/*'
   ]).pipe(gulp.dest(dist('bower_components')));
@@ -163,7 +171,7 @@ gulp.task('copy', function() {
     .pipe($.rename('elements.vulcanized.html'))
     .pipe(gulp.dest(dist('elements')));
 
-  return merge(app, bower, elements, vulcanized, swBootstrap, swToolbox)
+  return merge(app, carousel, bower, elements, vulcanized, swBootstrap, swToolbox)
     .pipe($.size({
       title: 'copy'
     }));
@@ -299,7 +307,7 @@ gulp.task('serve:dist', ['default'], function() {
 gulp.task('default', ['clean'], function(cb) {
   // Uncomment 'cache-config' if you are going to use service workers.
   runSequence(
-    ['copy', 'styles'],
+    ['clearCache', 'copy', 'styles'],
     'elements',
     ['lint', 'images', 'fonts', 'html'],
     'vulcanize', // 'cache-config',
@@ -320,7 +328,7 @@ gulp.task('deploy-gh-pages', function() {
     // Check if running task from Travis Cl, if so run using GH_TOKEN
     // otherwise run using ghPages defaults.
     .pipe($.if(process.env.TRAVIS === 'true', $.ghPages({
-      remoteUrl: 
+      remoteUrl:
         'https://$GH_TOKEN@github.com/polymerelements/polymer-starter-kit.git',
       silent: true,
       branch: 'gh-pages'

@@ -1,7 +1,7 @@
-* {
+/* {
   box-sizing: border-box;
   overflow: visible !important;
-}
+}*/
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -140,7 +140,7 @@ p.rms-home , h3.rms-home {
  .rms-main-half {
     width: 450px;
   }
-  
+
   .rms-card {
     width: 219px;
   }
