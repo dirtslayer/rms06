@@ -29,10 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     background : rgba(75,0,130,.5);
   }
 </style>
-    <paper-button tabindex="0" toggles on-click="_pbclick">
-      <iron-icon icon="view-stream" style="padding: 5px" on-click="_iiclick" ></iron-icon>
-      {{buttontext}}
-    </paper-button>
+    <paper-button tabindex="0" toggles on-click="_pbclick"><iron-icon icon="view-stream" style="padding: 5px" on-click="_iiclick" ></iron-icon>{{buttontext}}</paper-button>
 
     <iron-collapse class="rms-main vertical layout">
 
@@ -77,6 +74,7 @@ Polymer({
   },
   _iiclick(i,detail) {
     i.srcElement.parentElement.nextElementSibling.toggle();
+    i.stopPropagation();
   }
 
 

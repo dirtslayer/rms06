@@ -150,6 +150,7 @@ gulp.task('copy', function() {
 
 
   var carousel = gulp.src(['app/carousel/*']).pipe(gulp.dest(dist('carousel')));
+  var schedules = gulp.src(['app/schedules/*']).pipe(gulp.dest(dist('schedules')));
 
   var bower = gulp.src([
     'bower_components/**/*'
@@ -160,18 +161,18 @@ gulp.task('copy', function() {
       'app/elements/**/*.js'
     ])
     .pipe(gulp.dest(dist('elements')));
-
+/*
   var swBootstrap = gulp.src(['bower_components/platinum-sw/bootstrap/*.js'])
     .pipe(gulp.dest(dist('elements/bootstrap')));
 
   var swToolbox = gulp.src(['bower_components/sw-toolbox/*.js'])
     .pipe(gulp.dest(dist('sw-toolbox')));
-
+*/
   var vulcanized = gulp.src(['app/elements/elements.html'])
     .pipe($.rename('elements.vulcanized.html'))
     .pipe(gulp.dest(dist('elements')));
 
-  return merge(app, carousel, bower, elements, vulcanized, swBootstrap, swToolbox)
+  return merge(app, carousel, schedules, bower, elements, vulcanized)
     .pipe($.size({
       title: 'copy'
     }));
