@@ -30,7 +30,7 @@ app-drawer-layout {
   height: 100%;
   line-height: 350%;
 }
-#drawer iron-icon {
+#drawer iron-icon, #drawer svg {
  width:50px;
 }
 a,

@@ -71,10 +71,31 @@
           <iron-icon icon="info"></iron-icon>
           <span>Announce</span>
         </a>
+
+
         <a data-route="teams" href="/teams" on-click="onDataRouteClick">
-          <iron-icon icon="images/smallball.svg"></iron-icon>
-          <span>Teams</span>
+          <div class="horizontal layout">
+            <div class="vertical layout center-center">
+            <svg width="24" height="24" viewBox="0 0 28.000000139077507 28" data-code="61923" data-tags="futbol-o,soccer-ball-o"><g fill="#9AB574" transform="scale(0.02734375 0.02734375)"><path d="M348 466.286l164-118.857 164 118.857-62.286 192h-202.857zM512 0q104 0 198.857 40.571t163.429 109.143 109.143 163.429 40.571 198.857-40.571 198.857-109.143 163.429-163.429 109.143-198.857 40.571-198.857-40.571-163.429-109.143-109.143-163.429-40.571-198.857 40.571-198.857 109.143-163.429 163.429-109.143 198.857-40.571zM865.714 771.429q85.143-116 85.143-259.429v-1.714l-58.286 50.857-137.143-128 36-184.571 76.571 6.857q-85.714-117.714-222.286-161.143l30.286 70.857-164 90.857-164-90.857 30.286-70.857q-136.571 43.429-222.286 161.143l77.143-6.857 35.429 184.571-137.143 128-58.286-50.857v1.714q0 143.429 85.143 259.429l17.143-75.429 186.286 22.857 79.429 170.286-66.286 39.429q66.857 22.286 137.143 22.286t137.143-22.286l-66.286-39.429 79.429-170.286 186.286-22.857z" /></g></svg>
+            </div>
+            <div class="vertical layout center-center">
+            <span style="height:100%">Teams</span>
+            </div>
+          </div>
         </a>
+
+        <a data-route="email" href="/email" on-click="onDataRouteClick">
+        <div class="horizontal layout">
+          <div class="vertical layout center-center">
+          <iron-icon icon="mail" ></iron-icon>
+          </div>
+          <div class="vertical layout center-center">
+          <span style="height:100%">Email</span>
+          </div>
+        </div>
+        </a>
+
+
       </div>
       <!-- div drwawer -->
 
@@ -108,6 +129,9 @@
                 </section>
                 <section data-route="u12"  >
                   <u12fall2015-indoor></u12fall2015-indoor>
+                </section>
+                <section data-route="email"  >
+                  <rms-email></rms-email>
                 </section>
               </iron-pages>
           </div>
