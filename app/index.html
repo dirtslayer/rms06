@@ -46,9 +46,9 @@
 <body id="top" unresolved class="layout vertical center-center">
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
-    
+
     <paper-icon-button id="menubutton" icon="menu" on-click=onDataRouteClick ></paper-icon-button>
-    <!-- responsive width 840 px is 
+    <!-- responsive width 840 px is
       min desktop width, 150px for the menu, so 840 + 150 -->
     <app-drawer-layout id="app-drawer-layout" drawer-width="168px" responsive-width="3000px">
 
@@ -89,8 +89,8 @@
           </app-header>
 
           <div  style="width:100%" >
-              <iron-pages style="width:100%"  
-                attr-for-selected="data-route" 
+              <iron-pages style="width:100%"
+                attr-for-selected="data-route"
                 selected="{{route}}"
                class="vertical layout center-center" >
 
@@ -106,7 +106,7 @@
                 <section data-route="u10">
                   <u10fall2015-indoor></u10fall2015-indoor>
                 </section>
-                <section data-route="u12" style="width:100%" >
+                <section data-route="u12"  >
                   <u12fall2015-indoor></u12fall2015-indoor>
                 </section>
               </iron-pages>

@@ -12,14 +12,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="u10fall2015-indoor">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <google-youtube id="googleYouTube" playsupported="{{playSupported}}" video-id="mN7IAaRdi_k" state="{{state}}" currenttime="{{currentTime}}" currenttimeformatted="{{currentTimeFormatted}}" duration="{{duration}}" durationformatted="{{durationFormatted}}" fractionloaded="{{fractionLoaded}}" on-google-youtube-state-change="handleStateChange" on-google-youtube-error="handleYouTubeError">
-    </google-youtube>
+  <div class="rms-main vertical layout center-center">
+    <rms-schedule
+      dataurl="../../schedules/u10schedule.json"
+      buttontext="U10 Fall 2015 Indoor Schedule" >
+    </rms-schedule>
 
+  </div>
   </template>
   <script>
     (function() {

@@ -1,0 +1,119 @@
+[
+{
+"index": 0,
+"date": "October 25, 12:30 PM ",
+"location": "Millennium Place Field 1",
+"home-team": "Redwater",
+"away-team": "Team 04- Surgenor",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 1,
+"date": "October 31, 1:00 PM",
+"location": "Dow Centennial Centre",
+"home-team": "Team 05- Swain",
+"away-team": "Redwater",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 2,
+"date": "November 07, 4:30 PM",
+"location": "Millennium Place Field 1",
+"home-team": " Redwater",
+"away-team": "Team 06- Goodwin",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 3,
+"date": "November 21, 1:00 PM",
+"location": "Dow Centennial Centre",
+"home-team": " Redwater",
+"away-team": "Fort Sask - Yanch",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 4,
+"date": "December 5, 1:00 PM",
+"location": "Dow Centennial Centre",
+"home-team": " Ardrossan",
+"away-team": "Redwater",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 5,
+"date": "December 12, 12:00 PM",
+"location": "Dow Centennial Centre ",
+"home-team": " Redwater",
+"away-team": "Vegreville",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 6,
+"date": "December 19, 1:00 PM",
+"location": "Dow Centennial Centre",
+"home-team": " Redwater",
+"away-team": "Fort Sask - Bruinsma",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 7,
+"date": "January 02, 12:00 PM",
+"location": "Dow Centennial Centre",
+"home-team": "Team 01- McKnight ",
+"away-team": "Redwater",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 8,
+"date": "January 09, 3:30 PM",
+"location": "Millennium Place Field 1",
+"home-team": " Redwater",
+"away-team": "Team 02- Sigurdson",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 9,
+"date": "January 16, 1:00 PM ",
+"location": "Dow Centennial Centre",
+"home-team": "Team 03- Cameron ",
+"away-team": "Redwater",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 10,
+"date": "January 23, 4:30 PM",
+"location": "Millennium Place Field 1 ",
+"home-team": "Redwater ",
+"away-team": "Team 04- Surgenor",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 11,
+"date": "January 30, 1:00 PM",
+"location": "Dow Centennial Centre",
+"home-team": " Team 05- Swain",
+"away-team": "Redwater",
+"result": "win",
+"summary": "unavailable"
+},
+{
+"index": 12,
+"date": "February 06, 4:30 PM",
+"location": "Millennium Place Field 1",
+"home-team": " Redwater",
+"away-team": "Team 06- Goodwin",
+"result": "win",
+"summary": "unavailable"
+}
+]

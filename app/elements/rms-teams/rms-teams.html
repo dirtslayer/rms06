@@ -12,18 +12,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="rms-teams">
   <template>
+
+    <div layout horizontal >
+      <href-paperbutton text="U10 Fall 2015 Indoor" url="/u10" ></href-paperbutton>
+      <href-paperbutton text="U12 Fall 2015 Indoor" url="/u12" ></href-paperbutton>
+    </div>
+
+
   <style is="custom-style">
     #pc {
       --default-primary-color: indigo;
       --iron-image-info-color: white;
     }
   </style>
+
   <paper-carousel id="pc" src="../../carousel/carousel.json" ></paper-carousel>
 
-    <div layout horizontal >
-      <href-paperbutton text="U10 Fall 2015 Indoor" url="/u10" ></href-paperbutton>
-      <href-paperbutton text="U12 Fall 2015 Indoor" url="/u12" ></href-paperbutton>
-    </div>
+
   </template>
   <script>
   (function() {

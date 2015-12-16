@@ -12,21 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="u12fall2015-indoor">
   <template>
-    <script>
-    </script>
-
-
-    <style>
-      :host {
-        display: block;
-      }
-      /*      google-youtube {
-        height: 100%;
-        width: 100%;
-      }
-*/
-    </style>
-
+    <div class="rms-main vertical layout center-center">
       <google-youtube id="player" video-id={{utoobid}} fluid="true" autoplay="0">
       </google-youtube>
       <h3> pick a game to view </h3>
@@ -36,6 +22,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <paper-button id="b2" butoobid="tHO0-WPHzUY" on-click="_handleClick"> December 5, 2015
           <br> Hilights </paper-button>
       </div>
+
+        <rms-schedule
+          dataurl="../../schedules/u12schedule.json"
+          buttontext="U12 Fall 2015 Indoor Schedule" >
+        </rms-schedule>
+
+    
+    </div>
   </template>
   <script>
     (function() {
@@ -56,7 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         _handleClick: function(b, detail) {
           /*  these are steps i used to find what i need in the dom
-             
+
              console.log('_handleClick b: ' + b );
           console.log('_handleClick detail: ' + detail );
           console.log('b.srcElement: ' + b.srcElement );
