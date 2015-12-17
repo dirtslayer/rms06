@@ -4,7 +4,7 @@
 "date": "October 25, 12:30 PM ",
 "location": "Millennium Place Field 1",
 "home-team": "Redwater",
-"away-team": "Team 04- Surgenor",
+"away-team": "Team 04 - Surgenor",
 "result": "win",
 "summary": "unavailable"
 },
@@ -12,7 +12,7 @@
 "index": 1,
 "date": "October 31, 1:00 PM",
 "location": "Dow Centennial Centre",
-"home-team": "Team 05- Swain",
+"home-team": "Team 05 - Swain",
 "away-team": "Redwater",
 "result": "win",
 "summary": "unavailable"
@@ -22,7 +22,7 @@
 "date": "November 07, 4:30 PM",
 "location": "Millennium Place Field 1",
 "home-team": " Redwater",
-"away-team": "Team 06- Goodwin",
+"away-team": "Team 06 - Goodwin",
 "result": "win",
 "summary": "unavailable"
 },
@@ -45,7 +45,7 @@
 "away-team": "Redwater",
 "result": "win",
 "summary": "unavailable",
-"video": ""
+"video": "tHO0-WPHzUY"
 },
 {
 "index": 5,
@@ -54,7 +54,8 @@
 "home-team": "Redwater",
 "away-team": "Vegreville",
 "result": "loss",
-"summary": "A well played close game, with the last goal for Vegreville with only 30 seconds left in the game. Antal recorded his first goal to tie the game early in the first half."
+"summary": "A well played close game, with the last goal for Vegreville with only 30 seconds left in the game. Antal recorded his first goal to tie the game early in the first half.",
+"video": "vYk1NlJxPEs"
 },
 {
 "index": 6,
@@ -69,7 +70,7 @@
 "index": 7,
 "date": "January 02, 12:00 PM",
 "location": "Dow Centennial Centre",
-"home-team": "Team 01- McKnight ",
+"home-team": "Team 01 - McKnight ",
 "away-team": "Redwater",
 "result": "win",
 "summary": "unavailable"
@@ -79,7 +80,7 @@
 "date": "January 09, 3:30 PM",
 "location": "Millennium Place Field 1",
 "home-team": "Redwater",
-"away-team": "Team 02- Sigurdson",
+"away-team": "Team 02 - Sigurdson",
 "result": "win",
 "summary": "unavailable"
 },
@@ -87,7 +88,7 @@
 "index": 9,
 "date": "January 16, 1:00 PM ",
 "location": "Dow Centennial Centre",
-"home-team": "Team 03- Cameron ",
+"home-team": "Team 03 - Cameron ",
 "away-team": "Redwater",
 "result": "win",
 "summary": "unavailable"
@@ -97,7 +98,7 @@
 "date": "January 23, 4:30 PM",
 "location": "Millennium Place Field 1 ",
 "home-team": "Redwater ",
-"away-team": "Team 04- Surgenor",
+"away-team": "Team 04 - Surgenor",
 "result": "win",
 "summary": "unavailable"
 },
@@ -105,7 +106,7 @@
 "index": 11,
 "date": "January 30, 1:00 PM",
 "location": "Dow Centennial Centre",
-"home-team": "Team 05- Swain",
+"home-team": "Team 05 - Swain",
 "away-team": "Redwater",
 "result": "win",
 "summary": "unavailable"
@@ -115,7 +116,7 @@
 "date": "February 06, 4:30 PM",
 "location": "Millennium Place Field 1",
 "home-team": "Redwater",
-"away-team": "Team 06- Goodwin",
+"away-team": "Team 06 - Goodwin",
 "result": "win",
 "summary": "unavailable"
 }

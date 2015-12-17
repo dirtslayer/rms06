@@ -59,11 +59,11 @@ Polymer({
     }
   },
   _pbclick(b,detail){ // ? too easy
-
-    b.srcElement.nextElementSibling.toggle();
+b.target.nextElementSibling.toggle();
+    // b.srcElement.nextElementSibling.toggle();
   },
   _iiclick(i,detail) {
-    i.srcElement.parentElement.nextElementSibling.toggle();
+    i.target.parentElement.nextElementSibling.toggle();
     i.stopPropagation();
   }
 

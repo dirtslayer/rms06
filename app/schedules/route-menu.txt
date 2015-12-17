@@ -1,0 +1,30 @@
+[
+{
+"index": 0,
+"menu-text": "Home",
+"route-name": "home",
+"menu-route": "/",
+"menu-icon" : "home"
+},
+{
+"index": 1,
+"menu-text": "Announce"
+"menu-name": "announce",
+"menu-route": "/announce",
+"menu-icon" : "info"
+},
+{
+"index": 2,
+"menu-text": "Teams",
+"menu-name": "teams",
+"menu-route": "/teams",
+"menu-icon" : "rmsico:rmsball"
+},
+{
+"index": 3,
+"menu-text": "Email",
+"menu-name": "email",
+"menu-route": "/email",
+"menu-icon" : "email"
+}
+]
