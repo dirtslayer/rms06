@@ -6,12 +6,21 @@
       <google-youtube id="player" video-id={{utoobid}} fluid="true" autoplay="0">
       </google-youtube>
       <h3> pick a game to view </h3>
-      <div class="horizontal layout">
-        <paper-button id="b1" butoobid="meiVuvUOL6I" on-click="_handleClick"> November 21, 2015
-          <br> Hilights </paper-button>
-        <paper-button id="b2" butoobid="tHO0-WPHzUY" on-click="_handleClick"> December 5, 2015
-          <br> Hilights </paper-button>
-      </div>
+
+
+
+      <iron-ajax url="../../schedules/u12.txt" last-response="{{data}}" auto></iron-ajax>
+
+        <div layout vertical center>
+          <template is="dom-repeat" items="{{data}}" as="item" filter="hasvideo" observe="video" >
+            <div>
+                <paper-button id="[[item.video]]" on-click="_handleClick">
+              [[item.date]], [[item.home-team]] v. [[item.away-team]]
+                </paper-button>
+              </div>
+            </template>
+          </div>
+
 
         <rms-schedule
           dataurl="../../schedules/u12.txt"
@@ -35,6 +44,11 @@
             observer: '_utoobidChanged'
           }
         },
+        hasvideo: function(e) {
+          if (typeof e.video === 'undefined')
+            return false;
+          return true;
+        },
         _utoobidChanged: function(utoobid) {
           this.$.player.videoId = utoobid;
         },
@@ -51,8 +65,7 @@
           }
           */
 
-          console.log('b.srcElement.getAttribute butoobid : ' + b.srcElement.getAttribute('butoobid'));
-          this.utoobid = b.srcElement.getAttribute('butoobid');
+          this.utoobid = b.target.getAttribute('id');
           this.$.player.play();
 
         },
